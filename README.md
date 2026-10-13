@@ -1,42 +1,103 @@
-# AuraBank
+# 🏦 AuraBank
 
-Banco didático com interface gráfica desktop em Java Swing, sem dependências externas. Visual em roxo e azul escuro, telas de login e cadastro, painel de saldo, operações e histórico.
+### Sistema Bancário desenvolvido em Java
 
-## Executar
+O **AuraBank** é um projeto de sistema bancário desenvolvido com Java, com foco na aplicação prática de Programação Orientada a Objetos (POO), regras de negócio, persistência de dados e desenvolvimento de software.
 
-Com um JDK 8 ou superior instalado, execute na pasta do projeto:
+O projeto simula operações bancárias e está em evolução para integrar suas funcionalidades ao banco de dados MySQL utilizando Spring Boot e Spring Data JPA.
 
-```powershell
-javac -encoding UTF-8 -d build src/*.java
-java -cp build com.aurabank.Main
+## 🚀 Funcionalidades
+
+- Cadastro de clientes com nome, CPF, telefone, e-mail e senha
+- Acesso à conta utilizando CPF e senha
+- Consulta de saldo
+- Depósitos e saques com validação de valores
+- Consulta de informações da conta
+- Solicitações de amizade entre clientes
+- Aceitação de solicitações e gerenciamento de amigos
+- Transferências entre contas
+- Integração com MySQL em desenvolvimento
+
+## 🛠️ Tecnologias utilizadas
+
+- **Java** — Linguagem principal
+- **Spring Boot** — Framework para desenvolvimento da aplicação
+- **Spring Data JPA** — Persistência de entidades
+- **Hibernate** — Mapeamento objeto-relacional
+- **MySQL** — Banco de dados relacional
+- **Maven** — Gerenciamento de dependências
+- **Git e GitHub** — Versionamento do projeto
+- **IntelliJ IDEA** — Ambiente de desenvolvimento
+
+## 📂 Estrutura do projeto
+
+```text
+src/
+└── main/
+    ├── java/
+    │   └── com/aurabank/
+    │       ├── AuraBankApplication.java
+    │       ├── AuraBankUI.java
+    │       ├── Cliente.java
+    │       ├── ClienteRepository.java
+    │       ├── Conta.java
+    │       ├── ContaRepository.java
+    │       └── Main.java
+    └── resources/
+        └── application.properties
+
+pom.xml
+README.md
 ```
 
-No IntelliJ IDEA, execute o método `main` da classe `Main`.
+## 🗄️ Banco de dados
 
-Para usar a versão de console: `java -cp build Main --console`.
+O projeto utiliza MySQL e possui entidades relacionadas a clientes, contas e relacionamentos entre usuários.
 
-## Funcionalidades
+O Spring Data JPA é utilizado para implementar a camada de persistência.
 
-- Cadastro com campos obrigatórios, CPF com 11 dígitos e bloqueio de CPF duplicado.
-- Número de conta automático e login por CPF e senha.
-- Consulta de saldo e dados, depósito, saque e saída da conta.
-- Solicitações de amizade pelo número da conta, com aceite ou recusa pelo destinatário e lista de amigos.
-- Transferências somente entre amigos, com débito e crédito dos saldos e histórico nas duas contas na interface gráfica.
-- Valores com vírgula ou ponto decimal e até duas casas, sem separador de milhar.
-- Recusa de saques acima do saldo e valores zero, negativos ou inválidos.
-- Saldo calculado com `BigDecimal`, evitando imprecisão de ponto flutuante.
-- Histórico das últimas quatro movimentações de cada conta e botão para ocultar valores.
-- Interface com rolagem, navegação pelo teclado e confirmação com Enter nos campos de senha e valor.
+## ⚙️ Configuração
 
-Cadastros e saldos ficam em memória e são perdidos ao encerrar o programa. O CPF é validado apenas pelo formato, sem cálculo dos dígitos verificadores. As senhas ficam em memória, sem persistência ou criptografia. O projeto é um exercício de console.
+**Pré-requisitos:**
+- JDK compatível com o projeto
+- Maven
+- MySQL Server
+- IntelliJ IDEA ou outra IDE Java
 
-## Testar
+Crie o banco de dados:
 
-```powershell
-javac -encoding UTF-8 -d build src/*.java tests/*.java
-java -cp build ContaTest
-java -cp build AmizadeTransferenciaTest
-java '-Djava.awt.headless=true' -cp build InterfaceTest
+```sql
+CREATE DATABASE IF NOT EXISTS aurabank;
 ```
 
-Para transferir, cadastre duas contas na mesma execução. Envie uma solicitação pelo número da outra conta (ex.: `0002`), entre na conta destinatária e aceite. Depois, na conta remetente, selecione o amigo, informe o valor e confirme a transferência. Amizades e solicitações também ficam em memória e são perdidas ao encerrar o programa.
+Configure a conexão em `application.properties`, utilizando variáveis de ambiente para proteger informações sensíveis.
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/aurabank
+spring.datasource.username=root
+spring.datasource.password=${DB_PASSWORD}
+spring.jpa.hibernate.ddl-auto=update
+```
+
+Configure `DB_PASSWORD` com a senha do seu MySQL antes de iniciar a aplicação.
+
+## 📈 Próximas melhorias
+
+- [ ] Persistir cadastros e operações bancárias no MySQL
+- [ ] Implementar autenticação segura com hash de senhas
+- [ ] Criar interface gráfica para o sistema
+- [ ] Desenvolver APIs REST
+- [ ] Implementar histórico de transações
+- [ ] Adicionar testes automatizados
+
+## 👨‍💻 Desenvolvedor
+
+**Dileã Lima**
+
+Estudante de Tecnologia da Informação, com foco em desenvolvimento de software, Java, Python e bancos de dados.
+
+GitHub: [github.com/dilalima](https://github.com/dilalima)
+
+---
+
+⭐ Projeto desenvolvido para fins educacionais e evolução contínua dos conhecimentos em desenvolvimento de software.
