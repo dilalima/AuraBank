@@ -56,7 +56,7 @@ public class InterfaceTest {
             exigir(!((JButton) encontrar(ui, "transferir")).isEnabled(), "Sem amigos não transfere");
             preencher(ui, "contaAmigo", "9999");
             clicar(ui, "solicitarAmizade");
-            exigir(contem(ui, "Conta não encontrada"), "Conta inexistente recusada");
+            exigir(contem(ui, "com.aurabank.Conta não encontrada"), "com.aurabank.Conta inexistente recusada");
             preencher(ui, "contaAmigo", "0001");
             clicar(ui, "solicitarAmizade");
             exigir(contem(ui, "Solicitação enviada"), "Solicitação enviada pela interface");

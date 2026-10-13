@@ -1,5 +1,6 @@
+package com.aurabank;
+
 import java.awt.*;
-import java.awt.event.*;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
@@ -188,7 +189,7 @@ public class AuraBankUI extends JPanel {
         saldoTexto.add(Box.createVerticalStrut(12));
         saldoTexto.add(texto(saldoVisivel ? MOEDA.format(atual.getSaldo()) : "R$ ••••••", 38, true, Color.WHITE));
         saldoTexto.add(Box.createVerticalStrut(10));
-        saldoTexto.add(texto("Conta " + atual.getNumeroConta() + "   •   AuraBank", 12, false, new Color(228, 220, 255)));
+        saldoTexto.add(texto("com.aurabank.Conta " + atual.getNumeroConta() + "   •   AuraBank", 12, false, new Color(228, 220, 255)));
         saldo.add(saldoTexto, BorderLayout.CENTER);
         JButton ocultar = botao(saldoVisivel ? "Ocultar saldo" : "Mostrar saldo", false);
         ocultar.setName("ocultar");
@@ -309,7 +310,7 @@ public class AuraBankUI extends JPanel {
         solicitar.setName("solicitarAmizade");
         Runnable enviar = () -> {
             Conta pessoa = buscarNumero(destino.getText().trim());
-            if (pessoa == null) { aviso("Conta não encontrada.", false); return; }
+            if (pessoa == null) { aviso("com.aurabank.Conta não encontrada.", false); return; }
             if (!atual.solicitarAmizade(pessoa)) {
                 aviso("Solicitação não enviada: conta própria, amizade existente ou solicitação pendente.", false);
                 return;

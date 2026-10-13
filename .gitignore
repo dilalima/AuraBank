@@ -31,3 +31,14 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Maven ###
+target/
+
+### Arquivos de ambiente ###
+.env
+.env.*
+application-local.properties
+
+### Logs ###
+*.log

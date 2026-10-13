@@ -1,3 +1,5 @@
+package com.aurabank;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -120,7 +122,7 @@ public class Main {
         for (Conta candidata : contas) {
             if (candidata.getNumeroConta().equals(numero)) destino = candidata;
         }
-        if (destino == null) { System.out.println("Conta não encontrada."); return; }
+        if (destino == null) { System.out.println("com.aurabank.Conta não encontrada."); return; }
         System.out.println(conta.solicitarAmizade(destino)
                 ? "Solicitação enviada com sucesso."
                 : "Solicitação recusada: conta própria, amizade existente ou solicitação pendente.");

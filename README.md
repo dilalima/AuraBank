@@ -8,7 +8,7 @@ Com um JDK 8 ou superior instalado, execute na pasta do projeto:
 
 ```powershell
 javac -encoding UTF-8 -d build src/*.java
-java -cp build Main
+java -cp build com.aurabank.Main
 ```
 
 No IntelliJ IDEA, execute o método `main` da classe `Main`.
